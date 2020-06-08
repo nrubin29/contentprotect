@@ -1,0 +1,1 @@
+PYTHONPATH=/home/contentprotect python3 main.py

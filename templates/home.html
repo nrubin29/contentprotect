@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <style>
+        .card-header a {
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome, {{ me.username }}!</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                My Content
+                <a href="{% url 'add' %}" class="float-right">&plus; Add Content</a>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for image in my_images %}
+                    <li class="list-group-item">{{ image.name }}</li>
+                {% endfor %}
+                {% if not my_images %}
+                    <li class="list-group-item">You haven't uploaded any content yet.</li>
+                {% endif %}
+            </ul>
+        </div>
+        <br/>
+        <div class="card">
+            <div class="card-header">
+                Content Matches
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for match in my_matches %}
+                    <li class="list-group-item"><a href="{{ match.url }}">{{ match.hashed_image.name }}</a></li>
+                {% endfor %}
+                {% if not my_matches %}
+                    <li class="list-group-item">No matches!</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

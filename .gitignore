@@ -1,0 +1,7 @@
+.idea/
+backend/settings.py
+backend_app/migrations/
+scanner/images/
+scanner/last_run.txt
+scanner/praw.ini
+db.sqlite3
